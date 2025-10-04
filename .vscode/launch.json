@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Solution",
+      "projectName": "codeforces_problems_19c11724"
+    },
+    {
+      "type": "java",
+      "name": "BeutifulMatrix",
+      "request": "launch",
+      "mainClass": "BeutifulMatrix",
+      "projectName": "codeforces_problems_19c11724"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
