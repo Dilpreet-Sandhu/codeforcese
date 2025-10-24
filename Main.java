@@ -14,67 +14,43 @@ public class Main {
     }
 
     sc.close();
-    
+
   }
- public static void solve(Scanner sc) {
-    int n = sc.nextInt();
-    int[] arr = new int[n];
-    boolean allSame = true;
-    for (int i = 0;i < n;i++) {
 
-      arr[i] = sc.nextInt();
 
-      if (i > 0 && arr[i - 1] != arr[i]) allSame = false;
 
-    }
-    
-    if (allSame) {
-      System.out.println("NO");
-      return;
-    }
+  public static void solve(Scanner sc) {
 
-    reverse(arr,n);
-
-    if (arr[0] == arr[1]) {
-      for (int i = 2;i < n;i++) {
-        if (arr[i] != arr[0]) {
-          int temp = arr[i];
-          arr[i] = arr[1];
-          arr[1] = temp;
-          break;
-        }
+     int n = sc.nextInt();
+			long[] arr = new long[n];
+      for (int i = 0;i < n;i++) {
+        arr[i] = sc.nextLong();
       }
-    }
 
-    System.out.println("YES");
-    for (int i : arr) System.out.print(i + " ");
-    System.out.println();
+      Arrays.sort(arr);
 
-    
-    
-}
+      long maxDiff = arr[n - 1] - arr[0];
 
-public static void reverse(int[] arr,int n) {
-  int i = 0;
-  int j = n - 1;
-  while (i <= j) {
+      for (int i = 1;i < n;i++) {
 
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+        maxDiff = Math.max(maxDiff,arr[i] - arr[0]);
 
-    i++;
-    j--;
+      }
+      for (int i = 0;i < n - 1;i++) {
+
+        maxDiff = Math.max(maxDiff,arr[n - 1] - arr[i]);
+
+      }
+
+      for (int i = 0;i < n - 1;i++) {
+        maxDiff = Math.max(maxDiff,arr[i] - arr[i + 1]);
+      }
+
+      System.out.println(maxDiff);
+
 
   }
-}
 
   
 
- 
-
-
-
-  
-  
 }
